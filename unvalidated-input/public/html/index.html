@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage</title>
+  </head>
+  <body>
+    <form action="/UserLookup" method="post">
+      <input type="text" name="Username" value="" placeholder="Enter the number of users...">
+      <input type="submit" name="" value="Submit" onclick="return check();">
+    </form>
+  </body>
+  <script type="text/javascript">
+    function check() {
+      if (isNaN(document.getElementsByTagName('input')[0].value)) {
+        alert('Please enter a text');
+        return false;
+      } else return true;
+    }
+  </script>
+</html>

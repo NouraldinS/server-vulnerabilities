@@ -1,0 +1,23 @@
+{
+  "users": [
+    {"username": "Alan", "userPass": "Alan"},
+    {"username": "Aabriella", "userPass": "Aabriella"},
+    {"username": "Bach", "userPass": "Bach"},
+    {"username": "Clark", "userPass": "Clark"},
+    {"username": "Clerk", "userPass": "Clerk"},
+    {"username": "Mayham", "userPass": "Mayham"},
+    {"username": "Dan", "userPass": "Dan"},
+    {"username": "Dom", "userPass": "Dom"},
+    {"username": "Lisa", "userPass": "Lisa"},
+    {"username": "Lucy", "userPass": "Lucy"},
+    {"username": "Kane", "userPass": "Kane"},
+    {"username": "John", "userPass": "John"},
+    {"username": "Doe", "userPass": "Doe"},
+    {"username": "Darlie", "userPass": "Darlie"},
+    {"username": "Bob", "userPass": "Bob"},
+    {"username": "Jade", "userPass": "Jade"},
+    {"username": "Nexun", "userPass": "Nexun"},
+    {"username": "Lark", "userPass": "Lark"},
+    {"username": "Mark", "userPass": "Mark"}
+  ]
+}
