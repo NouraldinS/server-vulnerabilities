@@ -32,11 +32,59 @@ This article isn't a lot useful right? *okayyyyyy*. lets dig in!
 What makes your web server vulnerabile?
 
 ### 1. Un-validated Input (The Piece You Can't Patch Up)
-```javascript
-function validateUser(password) {
-    const superPassword = '1'
-    if (password == superPassword) {
+**NEVER TRUST YOUR USERS**
+So you're expecting your user to input their username, and then you check your database for that username, but wait, some users had entered an SQL statement in your `username` field. You weren't expecting that were you? That's called SQL injection, where you send concatenated strings to your database, thinking that the user would comply with your requirements.
+Check this example:
+[Unvalidated Input](https://github.com/NoureldeanSaed/server-vulnerabilities/tree/master/unvalidated-input)
 
-    }
+
+### 2. Cookie Poisoning
+![Poison cookies](https://i.imgur.com/3bZBrVR.png)
+We know that a cookie is something stored by your browser and sent to your server with **each** request, and your server uses that cookie for A, B and C. But what happens when your users aren't the best thing there is in the market?
+**NEVER TRUST YOUR USERS**
+Some of your users will attempt to manipulate your cookies. So you'd better be prepared.
+#### What can you do?
+![How to encrypt your cookie](https://i.imgur.com/K3yvhGu.png)
+
+### 3. SQL Injection
+#### A. `1=1` Always is true
+Lets say:
+```javascript
+module.exports = (id, cb) => {
+  const queryText = `SELECT * FROM users WHERE user_id = ${id}`
+  dbConnection.query(queryText, (err, res) => {
+    if (err) return cb(err);
+    cb(null, res);
+  });
 }
 ```
+Now this `id` we have is only brought by the server, from the client, so what if the client decided to insert `100 OR 1=1;` for an integer? Lets see how will the query look like as a whole:
+```SQL
+SELECT * FROM users WHERE user_id = 100 OR 1=1;
+```
+Which is basically just give me all the users the server has.
+
+#### B. `""=""` Always is true
+Lets say:
+```javascript
+const { username, password } = getUserInput();
+const queryText = `SELECT * FROM users WHERE name="${username}" AND password="${password}"`
+module.exports = (username, password, cb) => {
+  dbConnection.query(queryText, (err, res) => {
+    if (err) return cb(err);
+    cb(null, res);
+  });
+}
+```
+
+but what if our user decided suddenly to input `" OR ""="` for username and password? Lets see how will the query look like.
+```SQL
+SELECT * FROM users WHERE name="" OR ""="" AND password="" OR ""="";
+```
+
+And it doesn't take lots of creativity to get what you want from a database once you're in.
+
+### 4. Improper Error Handling
+![](https://i.giphy.com/media/Rov6QSZGBQgNO/giphy.webp)
+
+For you as a developer, error messages help you out to detect what went wrong. This could go the same for a hacker, he could have great aid by the error messages that are sent along with your unhandled errors. Modify error messages so that they are not clear for any user to understand nor extract info out of.
