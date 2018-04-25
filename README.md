@@ -88,3 +88,9 @@ And it doesn't take lots of creativity to get what you want from a database once
 ![](https://i.giphy.com/media/Rov6QSZGBQgNO/giphy.webp)
 
 For you as a developer, error messages help you out to detect what went wrong. This could go the same for a hacker, he could have great aid by the error messages that are sent along with your unhandled errors. Modify error messages so that they are not clear for any user to understand nor extract info out of.
+
+### Resources
+[web-server-vulnerabilities-defense-in-depth-strategy-squid-proxy](https://www.giac.org/paper/gsec/3729/web-server-vulnerabilities-defense-in-depth-strategy-squid-proxy/105970)
+[Unvalidated_Input_TOlzak](http://www.infosecwriters.com/text_resources/pdf/Unvalidated_Input_TOlzak.pdf)
+[Examples for web hacks](https://www.kb.cert.org/vuls/)
+[Awesome Giphys](https://giphy.com)
